@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Free Tom Robinson!</title>
+    <style>
+        :root{--accent:#8b0000;--muted:#666;--bg:#f7f7f7;--card:#fff}
+        *{box-sizing:border-box}
+        body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;margin:0;background:var(--bg);color:#111}
+        header{background:linear-gradient(90deg,rgba(139,0,0,0.9),rgba(139,0,0,0.6));color:#fff;padding:48px 16px}
+        .container{max-width:980px;margin:0 auto;padding:24px}
+        .hero{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+        .hero .copy{flex:1;min-width:280px}
+        h1{font-size:2rem;margin:0 0 8px}
+        p.lead{margin:0 0 16px;color:#fff;opacity:0.95}
+        .btn{display:inline-block;background:#fff;color:var(--accent);padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600}
+        main{padding:28px 0}
+        .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(17,17,17,0.06);margin-bottom:18px}
+        .three{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+        h2{margin-top:0}
+        blockquote{border-left:4px solid var(--accent);padding:10px 14px;background:#fff8f8;margin:0;border-radius:6px}
+        .cta{display:flex;gap:12px;flex-wrap:wrap}
+        form input,form textarea,select{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:8px 0}
+        form .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+        footer{padding:22px 16px;background:#fff;border-top:1px solid #eee;margin-top:24px}
+        .petition-list{max-height:150px;overflow:auto;padding:8px;border-radius:8px;border:1px dashed #eee;background:linear-gradient(180deg,#fff,#fcfcfc)}
+        .meta{color:var(--muted);font-size:0.95rem}
+        @media (max-width:640px){h1{font-size:1.6rem}.hero{flex-direction:column}}
+    </style>
+</head>
+<body>
+<header>
+    <div class="container hero">
+        <div class="copy">
+            <h1>Free Tom Robinson!</h1>
+            <p class="lead">Justice should not be prejudiced. Stand with us to demand a retrial for Tom Robinson and help him receive the justice he deserves</p>
+            <div class="cta">
+                <a href="#petition" class="btn">Sign the Petition</a>
+                <a href="#rally" class="btn" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.25)">Join the Rally</a>
+            </div>
+        </div>
+        <div style="min-width:240px">
+            <div class="card" aria-hidden="false">
+                <strong style="color: black;">Tom Robinson case overview</strong>
+
+                <ul style="margin:8px 0;padding-left:18px; color: #111111
+">
+                    <li>Defendant: Tom Robinson — A hardworking and kindhearted Father</li>
+                    <li>Accusation: Tom Robinson was accused of raping Mayella Ewell</li>
+                    <li>Why we are fighting for Tom Robinson: There has been clear evidence that proves Tom's innocence</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="card">
+        <h2>Why YOU should support Tom</h2>
+        <p>As sensible citizens of Maycomb, we have to recognize that Tom Robinson was falsely prosecuted solely because of his skin color and the racial bias that poisons our town. As our founding fathers declared, "all men are created equal." It is our moral and civic duty to stand up for that truth and to demand the freedom of Tom Robinson.</p>
+        <div class="three" style="margin-top:12px">
+            <div class="card">
+                <h3>Trust &amp; Credibility</h3>
+                <p>Atticus Finch, the elected representative for Maycomb County in the Alabama State Legislature and a man known for his unwavering integrity and honesty risks everything to defend Tom Robinson. Atticus would never violate his moral integrity to defend a guilty man. So if you don't believe in Tom at least believe in Atticus </p>
+            </div>
+            <div class="card">
+                <h3>Tom's humanity</h3>
+                <p>Tom Robinson has  shown kindness consistently through his actions such as helping Mayella Ewell with chores out of compassion and pity. Beyond being a kind soul he is a loving husband and father. Imagine Helen and their children struggling to survive day to day without the care and presence of their father and husband.</p>
+            </div>
+            <div class="card">
+                <h3>Solid facts</h3>
+                <p>Evidence from the trial raised questions about the legitimacy of th Ewell's testimony. Mayella Ewell was beaten on the right side but Toms left arm was crippled due to an accident but suspiciously Bob Ewell writes his name in court with his left hand. Along with physical evidence there were several contradictions in the testimonies of Mayella and Bob Ewell</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="petition" class="card">
+        <h2>Sign the Petition to Demand a Retrial</h2>
+        <p class="meta">Add your name and message. We'll collect signatures and present them to the county court and local leaders.</p>
+        <form id="petitionForm" onsubmit="return submitPetition(event)">
+            <div class="row">
+                <input type="text" id="firstName" placeholder="First name" required />
+                <input type="text" id="lastName" placeholder="Last name" required />
+            </div>
+            <input type="text" id="town" placeholder="Town / Neighborhood (optional)" />
+            <textarea id="message" rows="3" placeholder="A short message (optional)"></textarea>
+            <div style="display:flex;gap:8px;align-items:center">
+                <button class="btn" type="submit">Sign Petition</button>
+                <button type="button" onclick="printFlyer()" style="background:#fff;color:var(--accent);border-radius:8px;padding:10px 12px">Print Rally Flyer</button>
+                <div style="margin-left:auto;text-align:right">
+                    <div class="meta">Signatures collected:</div>
+                    <div id="count" style="font-weight:700;font-size:1.2rem">0</div>
+                </div>
+            </div>
+        </form>
+
+        <div style="margin-top:12px">
+            <div class="meta">Recent signatures</div>
+            <div class="petition-list" id="list"></div>
+        </div>
+    </section>
+
+    <section id="rally" class="card">
+        <h2>Join the Rally</h2>
+        <p>When: <strong>Saturday, 10:00 AM</strong> </br>
+            Where: <strong>Maycomb County Courthouse</strong></p>
+        <p>We will gather together to deliver the petition and call for a retrial. Atticus Finch will read a public statement and community speakers will share testimonies.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+            <a href="#petition" class="btn">Sign Petition</a>
+            <button class="btn" onclick="rsvp()" style="background:var(--accent);color:#fff">RSVP to Rally</button>
+        </div>
+    </section>
+
+
+
+
+</main>
+
+<footer>
+    <div class="container" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+            <strong>Free Tom Robinson</strong>
+            <div class="meta">Justice should not be black or white but equal</div>
+        </div>
+        <div style="margin-left:auto">
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Local, client-side signature storage for demonstration
+    const storageKey = 'freeTom_signatures_v1';
+    function loadSignatures(){
+        try{const raw=localStorage.getItem(storageKey);return raw?JSON.parse(raw):[];}catch(e){return[]}
+    }
+    function saveSignatures(list){localStorage.setItem(storageKey,JSON.stringify(list));}
+    function render(){
+        const list=loadSignatures();
+        document.getElementById('count').textContent = list.length;
+        const el=document.getElementById('list');el.innerHTML='';
+        if(list.length===0){el.innerHTML='<div class="meta">No signatures yet. Be the first to sign.</div>';return}
+        list.slice().reverse().forEach(s=>{
+            const d=document.createElement('div');d.style.padding='6px 8px';d.style.borderBottom='1px solid #f1f1f1';
+            d.innerHTML = `<strong>${escapeHtml(s.first+' '+s.last)}</strong> <span class="meta">${s.town?('• '+escapeHtml(s.town)):' '}</span><div class="meta">${escapeHtml(s.message||'—')}</div>`;
+            el.appendChild(d);
+        })
+    }
+    function submitPetition(ev){
+        ev.preventDefault();
+        const first=document.getElementById('firstName').value.trim();
+        const last=document.getElementById('lastName').value.trim();
+        const town=document.getElementById('town').value.trim();
+        const message=document.getElementById('message').value.trim();
+        if(!first||!last)return alert('Please enter your name.');
+        const list=loadSignatures();
+        list.push({first,last,town,message,ts:new Date().toISOString()});
+        saveSignatures(list);
+        render();
+        document.getElementById('petitionForm').reset();
+        alert('Thank you — your signature has been recorded locally for this demo. In a real campaign we would submit these to county officials.');
+        return false;
+    }
+    function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+    function printFlyer(){
+        const content=`<html><head><title>Free Tom Robinson Rally Flyer</title><style>body{font-family:Arial;padding:40px;}h1{color:#8b0000}p{font-size:18px}</style></head><body><h1>Free Tom Robinson</h1><p>Demand a retrial, Saturday, 10:00 AM</p><p>Maycomb County Courthouse</p><p>Stand for justice.</p></body></html>`;
+        const w=window.open('','_blank');w.document.write(content);w.document.close();w.focus();w.print();
+    }
+    function rsvp(){alert('Thanks — you are tentatively RSVP’d for the rally. Share the event with neighbors.');}
+    // initialize
+    render();
+</script>
+</body>
+</html>
